@@ -1,0 +1,12 @@
+.layout {
+  background: #0f1123;
+  color: #fff;
+}
+
+.layout__content {
+  min-height: 100vh;
+  max-width: 1400px;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
