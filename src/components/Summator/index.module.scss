@@ -1,35 +1,32 @@
-@import '../../core/styles/variables.scss';
-
 .summator {
   max-width: 500px;
   border: 1px solid white; 
   padding: 1rem 0.5rem;
-}
 
-.summator__total {
-  font-size: 2rem;
-  font-weight: 500;
-}
+  &__total {
+    font-size: 2rem;
+    font-weight: 500;
+  }
 
-.summator__inputs {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  &__inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.summator__input {
-  height: 1.5rem;
-  min-width: 200px;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid 
-}
+  &__input {
+    height: 1.5rem;
+    min-width: 200px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid 
+  }
 
-.summator__button {
-  padding: 1rem 2rem;
-  border: none;
-  background: var(--color-black-dark);
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 500;
+  &__button {
+    padding: 1rem 2rem;
+    border: none;
+    background: var(--color-black-dark);
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
 }
-
