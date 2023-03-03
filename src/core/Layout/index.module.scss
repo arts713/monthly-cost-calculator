@@ -1,5 +1,7 @@
+@import '../../core/styles/variables.scss';
+
 .layout {
-  background: #1f2128;
+  background: var(--color-black-light);
   color: #fff;
 }
 
