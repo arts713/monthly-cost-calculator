@@ -7,10 +7,12 @@ import Layout from './core/Layout';
 function App() {
   return (
     <>
+      <Header />
       <Layout>
-        <Header />
         <main>
-          <Summator />
+          <div className="container">
+            <Summator />
+          </div>
         </main>
       </Layout>
     </>

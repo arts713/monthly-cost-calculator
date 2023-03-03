@@ -1,14 +1,15 @@
 import * as React from 'react';
 
+import styles from "./index.module.scss";
+
 const ExchangeRate = () => {
   return (
-    <>
-      <ul>
-        <li>UAH</li>
-        <li>USD</li>
-        <li>CHF</li>
+    <div className={styles.exchangeRates}>
+      <ul className={styles.exchangeRates__list}>
+        <li className={styles.exchangeRates__item}>USD<span>37</span></li>
+        <li className={styles.exchangeRates__item}>CHF<span>41</span></li>
       </ul>
-    </>
+    </div>
   );
 }
 
