@@ -1,77 +1,36 @@
 import * as React from 'react';
 
 import style from './index.module.scss';
+import Form from './ui/OperationForm';
+import Records, { PropsRecord } from './ui/Records';
 
-type PropsRecord = {
-  amount: string;
-  comment?: string;
-}
-
-type PropsRecordsList = {
-  items: PropsRecord[];
-}
-
-const List = ({items}: PropsRecordsList) => {
-  return (
-    <ul>
-      {items.map((item, index) => {
-        return (
-          <li key={index}>
-            <div>{item.amount}</div>
-            <div>{item.comment}</div>
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
+const mock = [
+  {date: new Date(), amount: '100', description: ''},
+  {date: new Date(), amount: '1000000', description: '12312'},
+  {date: new Date(), amount: '1000000', description: "Verrry long sdafgljsdf asdghla;s asdfj;lasdj  asdj;fgas asdfja;sl asd ahjws;glh assd jkhlgalskd text"},
+  {date: new Date(), amount: '1000000', description: '12312'},
+]
 
 const Summator = () => {
-  const [records, setRecords] = React.useState<PropsRecord[]>([]);
-  const refInputAmount = React.useRef<HTMLInputElement | null>(null);  
-  const refInputComment = React.useRef<HTMLTextAreaElement | null>(null);  
+  const [records, setRecords] = React.useState<PropsRecord[]>(mock);
 
-  const addOperation = () => {
-    const amount = refInputAmount.current?.value;
-    const comment = refInputComment.current?.value;
-
-    if (amount) {
-      const record: PropsRecord = {
-        amount,
-        comment,
-      };
-
-      setRecords([...records, record]);
-    }
-
-    const clearInputs = () => {
-      if(refInputAmount && refInputAmount.current) {
-        refInputAmount.current.value = '';
-      }
-      if(refInputComment && refInputComment.current) {
-        refInputComment.current.value = '';
-      }
-    }
-
-    clearInputs();
+  const addRecord = (record: PropsRecord) => {
+    setRecords([...records, record]);
   }
-
   const amount = records.reduce((accum, item) => {
     return accum += Number(item.amount);
-  }, 0);
+  }, 1);
 
   return (
     <div className={style.summator}>
-      <div className={style.summator__total}>Total amount: {amount}</div>
-      <div className={style.summator__inputs}>
-        <input className={style.summator__input} ref={refInputAmount} />
-        <textarea className={style.summator__input} ref={refInputComment} />
+      <div className={style.summator__form}>
+        <Form amount={amount} addRecord={addRecord} />
       </div>
-      <button className={style.summator__button} onClick={addOperation}>Add</button>
-      <List items={records} />
+      <div className={style.summator__records}>
+        <Records records={records} />
+      </div>
     </div>
   );
 }
 
 export default Summator;
-
